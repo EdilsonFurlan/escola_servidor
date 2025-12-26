@@ -1,0 +1,12 @@
+[Unit]
+Description=gunicorn daemon for escola
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/var/www/escola
+ExecStart=/var/www/escola/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/var/www/escola/escola.sock --umask 007 core.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
