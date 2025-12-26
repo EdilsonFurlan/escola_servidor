@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/login/', CustomAuthToken.as_view(), name='api_login'),
     path('api/', include('comunicados.urls')),
+    path('api/', include('alunos.urls')),
 ]
 
 if settings.DEBUG:
